@@ -10,6 +10,7 @@
  *
  * Created on 1 de Junho de 2018, 11:54
  */
+#include <iostream>
 #include <string>
 using namespace std;
 
