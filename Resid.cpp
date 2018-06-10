@@ -12,7 +12,8 @@
  */
 
 #include "Resid.h"
-
+Resid::Resid():Imovel(){
+}
 Resid::Resid(string tipo ,int identificador,string dono,int nQuartos,int nVagas):
     Imovel(tipo,identificador,dono){
     this->nQuartos=nQuartos;

@@ -20,6 +20,7 @@ public:
     Resid(string tipo ,int identificador,string dono,int nQuartos,int nVagas);
     Resid(const Resid& orig);
     virtual ~Resid();
+    Resid();
 private:
 
 };

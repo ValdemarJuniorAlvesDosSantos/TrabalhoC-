@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Apart.o \
+	${OBJECTDIR}/Casa.o \
 	${OBJECTDIR}/Imovel.o \
 	${OBJECTDIR}/Resid.o \
 	${OBJECTDIR}/Retang.o \
@@ -67,6 +69,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalhoc__: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trabalhoc__ ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Apart.o: Apart.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Apart.o Apart.cpp
+
+${OBJECTDIR}/Casa.o: Casa.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Casa.o Casa.cpp
 
 ${OBJECTDIR}/Imovel.o: Imovel.cpp
 	${MKDIR} -p ${OBJECTDIR}

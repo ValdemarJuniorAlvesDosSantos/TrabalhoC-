@@ -23,7 +23,8 @@ class Terreno: public Imovel {
 public:
     Terreno(string tipo ,int identificador,string dono,string solo,float preco);
     Terreno(const Terreno& orig);
-    virtual float area()=0;
+    Terreno();
+    virtual float area();
     float preco();
     virtual ~Terreno();
 private:

@@ -19,6 +19,7 @@ class Retang: public Terreno {
 public:
     Retang(string tipo ,int identificador,string dono,string solo,float preco,float lado1,float lado2);
     Retang(const Retang& orig);
+    Retang();
     float area();
     virtual ~Retang();
 private:

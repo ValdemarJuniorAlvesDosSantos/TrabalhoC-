@@ -12,7 +12,9 @@
  */
 
 #include "Retang.h"
+Retang::Retang():Terreno(){
 
+}
 Retang::Retang(string tipo ,int identificador,string dono,string solo,float preco,float lado1,float lado2):
     Terreno(tipo ,identificador, dono, solo, preco){
     this->lado1=lado1;

@@ -12,7 +12,9 @@
  */
 
 #include "Casa.h"
+Casa::Casa():Resid(){
 
+}
 Casa::Casa(string tipo ,int identificador,string dono,int nQuartos,int nVagas,int nPavi,float areaPavi,float precoMetro,float areaLivre,float precoLivre):
     Resid(tipo , identificador, dono, nQuartos, nVagas){
         this->nPavi=nPavi;

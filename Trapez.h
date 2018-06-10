@@ -19,6 +19,7 @@ class Trapez : public Terreno{
 public:
     Trapez(string tipo ,int identificador,string dono,string solo,float precoMetro,float base1,float base2,float altura);
     Trapez(const Trapez& orig);
+    Trapez();
     float area();
     virtual ~Trapez();
 private:

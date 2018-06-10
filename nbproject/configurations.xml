@@ -4,7 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>Apart.h</itemPath>
+      <itemPath>Casa.h</itemPath>
       <itemPath>Imovel.h</itemPath>
+      <itemPath>Lista.h</itemPath>
       <itemPath>Resid.h</itemPath>
       <itemPath>Retang.h</itemPath>
       <itemPath>Terreno.h</itemPath>
@@ -14,6 +17,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>Apart.cpp</itemPath>
+      <itemPath>Casa.cpp</itemPath>
       <itemPath>Imovel.cpp</itemPath>
       <itemPath>Resid.cpp</itemPath>
       <itemPath>Retang.cpp</itemPath>
@@ -48,12 +53,22 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>4</standard>
+          <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="Apart.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Apart.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Casa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Casa.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Imovel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Imovel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lista.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resid.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -98,9 +113,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Apart.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Apart.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Casa.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Casa.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Imovel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Imovel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lista.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resid.cpp" ex="false" tool="1" flavor2="0">
       </item>

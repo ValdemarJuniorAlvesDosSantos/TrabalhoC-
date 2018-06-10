@@ -12,7 +12,8 @@
  */
 
 #include "Terreno.h"
-
+Terreno::Terreno():Imovel(){
+}
 Terreno::Terreno(string tipo ,int identificador,string dono,string solo,float precoMetro):
     Imovel(tipo,identificador,dono)
 {
@@ -25,6 +26,9 @@ Terreno::Terreno(const Terreno& orig):
 {
     this->solo=orig.solo;
     this->precoMetro=orig.precoMetro;
+}
+float Terreno::area(){
+    return 0;
 }
 float Terreno::preco(){
     float aux=this->area()*precoMetro;

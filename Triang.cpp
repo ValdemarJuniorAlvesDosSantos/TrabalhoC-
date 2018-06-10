@@ -12,7 +12,8 @@
  */
 
 #include "Triang.h"
-
+Triang::Triang():Terreno(){
+}
 Triang::Triang(string tipo ,int identificador,string dono,string solo,float preco,float base,float altura):
     Terreno(tipo,identificador,dono,solo,preco){
         this->base=base;

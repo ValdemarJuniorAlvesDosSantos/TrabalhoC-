@@ -12,7 +12,8 @@
  */
 
 #include "Trapez.h"
-
+Trapez::Trapez():Terreno(){
+}
 Trapez::Trapez(string tipo ,int identificador,string dono,string solo,float precoMetro,float base1,float base2,float altura):
     Terreno(tipo ,identificador, dono, solo,precoMetro){
     this->base1=base1;

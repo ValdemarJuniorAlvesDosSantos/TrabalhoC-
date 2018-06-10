@@ -13,7 +13,9 @@
 
 #include "Imovel.h"
 using namespace std;
+Imovel::Imovel(){
 
+}
 Imovel::Imovel(string tipo ,int identificador,string dono) {
     this->tipo=tipo;
     this->identificador=identificador;
@@ -26,9 +28,11 @@ Imovel::Imovel(const Imovel& orig) {
     this->dono=orig.dono;
 }
 void Imovel::imprime(){
-    cout<<this->preco()<<endl;
+    cout<< this->identificador <<endl << this->dono << endl;
 }
-
+float Imovel::preco(){
+    return 0;
+}
 int Imovel::getId(){
     return identificador;
 }

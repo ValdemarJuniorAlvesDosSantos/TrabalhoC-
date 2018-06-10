@@ -1,12 +1,20 @@
-build/Debug/GNU-Linux/main.o: main.cpp Imovel.h Terreno.h Triang.h \
- Retang.h Trapez.h
+build/Debug/GNU-Linux/main.o: main.cpp Triang.h Terreno.h Imovel.h \
+ Retang.h Trapez.h Casa.h Resid.h Apart.h Lista.h
 
-Imovel.h:
+Triang.h:
 
 Terreno.h:
 
-Triang.h:
+Imovel.h:
 
 Retang.h:
 
 Trapez.h:
+
+Casa.h:
+
+Resid.h:
+
+Apart.h:
+
+Lista.h:

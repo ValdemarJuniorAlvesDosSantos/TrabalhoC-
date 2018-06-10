@@ -21,13 +21,15 @@ class Imovel {
     int identificador;
     string tipo;
     string dono;
+
 public:
     Imovel(string tipo ,int identificador,string dono);
     Imovel(const Imovel& orig);
+    Imovel();
     
     void imprime();
     int getId();
-    virtual float preco()=0;
+    virtual float preco();
     virtual ~Imovel();
 private:
 

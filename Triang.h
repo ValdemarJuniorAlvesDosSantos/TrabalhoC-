@@ -19,6 +19,7 @@ class Triang: public Terreno{
 public:
     Triang(string tipo ,int identificador,string dono,string solo,float preco,float base,float altura);
     Triang(const Triang& orig);
+    Triang();
     float area();
     virtual ~Triang();
 private:

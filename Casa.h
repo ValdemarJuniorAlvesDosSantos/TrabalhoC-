@@ -23,6 +23,7 @@ public:
     float precoLivre;
     Casa(string tipo ,int identificador,string dono,int nQuartos,int nVagas,int nPavi,float areaPavi,float precoMetro,float areaLivre,float precoLivre);
     Casa(const Casa& orig);
+    Casa();
     float preco();
     virtual ~Casa();
 private:
