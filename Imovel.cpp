@@ -28,7 +28,7 @@ Imovel::Imovel(const Imovel& orig) {
     this->dono=orig.dono;
 }
 void Imovel::imprime(){
-    cout<< this->identificador <<endl << this->dono << endl;
+    cout<< this->identificador <<", ";
 }
 float Imovel::preco(){
     return 0;
@@ -36,7 +36,9 @@ float Imovel::preco(){
 int Imovel::getId(){
     return identificador;
 }
-
+int Imovel::comp(int i){
+    return identificador-i;
+}
 Imovel::~Imovel() {
     
 }

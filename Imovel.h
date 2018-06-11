@@ -31,6 +31,7 @@ public:
     int getId();
     virtual float preco();
     virtual ~Imovel();
+    int comp(int i);
 private:
 
 };

@@ -14,8 +14,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-//#include "Imovel.h"
-//#include "Terreno.h"
+
 
 #include "Triang.h"
 #include "Retang.h"
@@ -25,135 +24,207 @@
 #include "Lista.h"
 
 using namespace std;
+void exclui (Lista<Imovel*> &lista, Lista<Terreno*> &argilosos, Lista<Casa*> &casas,int i){
+    lista.remove(i);
+    casas.remove(i);
+    argilosos.remove(i);
+}
 
+void adiciona (Lista<Imovel*> &lista, Lista<Terreno*> &argilosos, Lista<Casa*> &casas, ifstream &in, string linha,float cPreco,float cArea) {
+    
+    if (linha == "triang") {
+        
+        getline(in, linha);
+        int identificador = stoi(linha);
+        exclui(lista,argilosos,casas,identificador);
+        string dono;
+        getline(in, dono);
+        string solo;
+        getline(in, solo);
+        getline(in, linha);
+        float preco = stof(linha);
+        getline(in, linha);
+        float base = stof(linha);
+        getline(in, linha);
+        float altura = stof(linha);
+        if (solo=="G"){
+            argilosos.insereInicio(new Triang("triang", identificador, dono, solo, preco, base, altura));
+        }
+        lista.insereInicio(new Triang("triang", identificador, dono, solo, preco, base, altura));
+    }
+    //Le retang
+    if (linha == "retang") {
+        getline(in, linha);
+        int identificador = stoi(linha);
+        exclui(lista,argilosos,casas,identificador);
+        string dono;
+        getline(in, dono);
+        string solo;
+        getline(in, solo);
+        getline(in, linha);
+        float preco = stof(linha);
+        getline(in, linha);
+        float lado1 = stof(linha);
+        getline(in, linha);
+        float lado2 = stof(linha);
+         if (solo=="G"){
+             argilosos.insereInicio(new Retang("retang", identificador, dono, solo, preco, lado1, lado2));
+        }
+        lista.insereInicio(new Retang("retang", identificador, dono, solo, preco, lado1, lado2));
+    }
+    // le trapez
+    if (linha == "trapez") {
+        getline(in, linha);
+        int identificador = stoi(linha);
+        exclui(lista,argilosos,casas,identificador);
+        string dono;
+        getline(in, dono);
+        string solo;
+        getline(in, solo);
+        
+        getline(in, linha);
+        float preco = stof(linha);
+        getline(in, linha);
+        float base1 = stof(linha);
+        getline(in, linha);
+        float base2 = stof(linha);
+        getline(in, linha);
+        float altura = stof(linha);
+        if (solo=="G"){
+            argilosos.insereInicio(new Trapez("trapez", identificador, dono, solo, preco, base1, base2, altura));
+        }
+        lista.insereInicio(new Trapez("trapez", identificador, dono, solo, preco, base1, base2, altura));
+    }
+    if (linha == "casa") {
+        getline(in, linha);
+        int identificador = stoi(linha);
+        exclui(lista,argilosos,casas,identificador);
+        string dono;
+        getline(in, dono);
+        
+        getline(in, linha);
+        int nQuartos = stoi(linha);
 
-void lerCatalogo(Lista<Imovel*> &lista){
+        getline(in, linha);
+        int nVagas = stoi(linha);
+
+        getline(in, linha);
+        int nPavi = stoi(linha);
+
+        getline(in, linha);
+        float areaPavi = stof(linha);
+
+        getline(in, linha);
+        float preco = stof(linha);
+
+        getline(in, linha);
+        float areaLivre = stof(linha);
+
+        getline(in, linha);
+        float precoLivre = stof(linha);
+        Casa* a=new Casa("casa", identificador, dono, nQuartos, nVagas, nPavi, areaPavi, preco, areaLivre, precoLivre);
+        if (a->preco()<cPreco && a->areaPavi*a->nPavi> cArea){
+            casas.insereInicio(a);
+        }
+        lista.insereInicio(new Casa("casa", identificador, dono, nQuartos, nVagas, nPavi, areaPavi, preco, areaLivre, precoLivre));
+    }
+    if (linha == "apto") {
+        getline(in, linha);
+        int identificador = stoi(linha);
+        exclui(lista,argilosos,casas,identificador);
+        string dono;
+        getline(in, dono);
+        
+        getline(in, linha);
+        int nQuartos = stoi(linha);
+
+        getline(in, linha);
+        int nVagas = stoi(linha);
+
+        getline(in, linha);
+        int andares = stoi(linha);
+
+        getline(in, linha);
+        float area = stof(linha);
+
+        getline(in, linha);
+        float precMetro = stof(linha);
+
+        string lazer;
+        getline(in, lazer);
+
+        getline(in, linha);
+        int nAnd = stoi(linha);
+
+        lista.insereInicio(new Apart("apto", identificador, dono, nQuartos, nVagas, andares, area, precMetro, lazer, nAnd));
+
+    }      
+}
+
+void lerCatalogo(Lista<Imovel*> &lista, Lista<Terreno*> &argilosos,Lista<Casa*> &casas, float preco,float area){
     ifstream in("catalogo.txt");
     string linha;
     while (getline(in, linha)){
-        if (linha=="triang"){
-            getline(in,linha);
-            int identificador = stoi(linha);
-            string dono; getline(in, dono);
-            string solo; getline(in, solo);
-            getline(in,linha);
-            float preco= stof(linha);
-            getline(in,linha);
-            float base= stof(linha);
-            getline(in,linha);
-            float altura=stof(linha);
-            lista.insereInicio(new Triang("triang",identificador,dono,solo,preco,base,altura));
-        }
-        //Le retang
-         if (linha=="retang"){
-            getline(in,linha);
-            int identificador = stoi(linha);
-            string dono; getline(in, dono);
-            string solo; getline(in, solo);
-            getline(in,linha);
-            float preco= stof(linha);
-            getline(in,linha);
-            float lado1= stof(linha);
-            getline(in,linha);
-            float lado2=stof(linha);
-            lista.insereInicio(new Retang("retang",identificador,dono,solo,preco,lado1,lado2));
-        }
-        // le trapez
-        if (linha=="trapez"){
-            getline(in,linha);
-            int identificador = stoi(linha);
-            string dono; getline(in, dono);
-            string solo; getline(in, solo);
-            getline(in,linha);
-            float preco= stof(linha);
-            getline(in,linha);
-            float base1= stof(linha);
-            getline(in,linha);
-            float base2=stof(linha);
-            getline(in,linha);
-            float altura=stof(linha);
-            lista.insereInicio(new Trapez("trapez",identificador,dono,solo,preco,base1,base2,altura));
-        }
-        if (linha=="casa"){
-            getline(in,linha);
-            int identificador = stoi(linha);
-            string dono; getline(in, dono);
-            
-            getline(in,linha);
-            int nQuartos = stoi(linha);
-            
-            getline(in,linha);
-            int nVagas = stoi(linha);
-            
-            getline(in,linha);
-            int nPavi = stoi(linha);
-            
-            getline(in,linha);
-            float areaPavi=stof(linha);
-            
-            getline(in,linha);
-            float preco=stof(linha);
-            
-            getline(in,linha);
-            float areaLivre=stof(linha);
-            
-            getline(in,linha);
-            float precoLivre=stof(linha);
-            
-            lista.insereInicio(new Casa("casa",identificador,dono,nQuartos,nVagas,nPavi,areaPavi,preco,areaLivre,precoLivre));
-        }
-         if (linha=="apto"){
-            getline(in,linha);
-            int identificador = stoi(linha);
-            string dono; getline(in, dono);
-            
-            getline(in,linha);
-            int nQuartos = stoi(linha);
-            
-            getline(in,linha);
-            int nVagas = stoi(linha);
-            
-            getline(in,linha);
-            int andares = stoi(linha);
-            
-            getline(in,linha);
-            float area=stof(linha);
-            
-            getline(in,linha);
-            float precMetro=stof(linha);
-            
-            string lazer; getline(in,lazer);
-            
-            getline(in,linha);
-            int nAnd = stoi(linha);
-            
-            lista.insereInicio(new Apart("apto",identificador,dono,nQuartos,nVagas,andares,area,precMetro,lazer,nAnd));
-    
-         }    
-        
+        adiciona(lista,argilosos,casas,in,linha,preco,area);        
     }
     in.close();
 }
-int main(int argc, char** argv) {
-    Triang* a= new Triang("tipo",5,"dono","A",10,5,2);
-    Retang* b= new Retang("tipo",5,"dono","A",10,5,2);
-    Trapez* c=new Trapez("tipo",5,"dono","A",10,5,0,2);
-    Casa* d=new Casa("tipo",5,"dono",1,1,1,10,10,10,10);
-    Apart* e=new Apart("tipo" , 10, "dono", 1, 1, 1, 10.0,  10.0,  "N", 10);
+void lerAtual(Lista<Imovel*> &lista, Lista<Terreno*> &argilosos,Lista<Casa*> &casas, float preco,float area){
+    ifstream in("atual.txt");
+    string linha;
+    while (getline(in, linha)){
+        if (linha=="i"){
+            getline(in, linha);
+            adiciona(lista,argilosos,casas,in,linha,preco,area);   
+        }
+        if (linha=="a"){
+            getline(in,linha);
+            adiciona(lista,argilosos,casas,in,linha,preco,area);            
+        }
+        if (linha=="e"){
+            getline(in,linha);
+            exclui(lista,argilosos,casas,stoi(linha));
+        }
+    }
+    in.close();
+}
 
+
+
+int main(int argc, char** argv) {
+    Lista<Casa*> casas;
     Lista<Imovel*>  imoveis;
     Lista<Terreno*> argilosos;
-    Lista<Casa*> casa;
- 
-//    imoveis.insereInicio(a);
-//    
-//    imoveis.insereInicio(b);
-//    imoveis.insereInicio(c);
-//    imoveis.insereInicio(d);
-//    imoveis.insereInicio(e);
-    lerCatalogo(imoveis);
-    imoveis.imprime();
- 
+    int nImov,nArg,i,j,k;
+    float cPreco,cArea;
+    ifstream in("espec.txt");
+    string linha;
+    getline(in, linha);
+    nImov=stoi(linha);
+    
+    getline(in, linha);
+    nArg=stoi(linha);
+    
+    getline(in, linha);
+     cArea = stof(linha);
+    
+    getline(in, linha);
+     cPreco = stof(linha);
+
+    getline(in, linha);
+    i=stoi(linha);
+    
+    getline(in, linha);
+    j=stoi(linha);
+    
+    getline(in, linha);
+    k=stoi(linha);
+    in.close();
+    
+    
+    lerCatalogo(imoveis,argilosos,casas,cPreco,cArea);
+    lerAtual(imoveis,argilosos,casas,cPreco,cArea);
+    casas.imprime();
     
     return 0;
 }

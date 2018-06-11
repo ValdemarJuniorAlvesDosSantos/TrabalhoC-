@@ -27,10 +27,12 @@ class Lista {
 No* prim;
 
 public:
+~Lista(){}
 Lista() { prim = NULL; }
 void insereInicio(T valor);
 T pegaNaLista(int n);
 void imprime();
+void remove(int n);
 };
 
 template <class T>
@@ -56,7 +58,31 @@ void Lista<T>::imprime(){
         aux->info->imprime();
         aux=aux->prox;
     }
+    cout<<endl;
 }
+
+template <class T>
+void Lista<T>::remove(int n){
+    No* aux = this->prim;
+    if (aux==NULL){
+        return;
+    }
+    if (aux->info->comp(n)==0){
+       
+        this->prim = this->prim->prox;
+        return;
+    }
+    
+    while (aux->prox!=NULL){
+        
+        if (aux->prox->info->comp(n)==0){
+          
+            aux->prox=aux->prox->prox;
+            return;
+        }
+        aux=aux->prox;
+    }
+};
 
 #endif /* LISTA_H */
 
