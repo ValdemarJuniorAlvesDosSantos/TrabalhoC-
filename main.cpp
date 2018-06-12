@@ -189,8 +189,6 @@ void lerAtual(Lista<Imovel*> &lista, Lista<Terreno*> &argilosos,Lista<Casa*> &ca
     in.close();
 }
 
-
-
 int main(int argc, char** argv) {
     Lista<Casa*> casas;
     Lista<Imovel*>  imoveis;
@@ -224,8 +222,32 @@ int main(int argc, char** argv) {
     
     lerCatalogo(imoveis,argilosos,casas,cPreco,cArea);
     lerAtual(imoveis,argilosos,casas,cPreco,cArea);
-    casas.imprime();
+    imoveis.ordena();
+    argilosos.ordena();
+    casas.ordena();
+    Lista<Imovel*> listaA;
+    Lista<Terreno*> listaB;
+    listaA=imoveis.ultimos(nImov*imoveis.tam()/100);
+    listaB=argilosos.ultimos(nArg*argilosos.tam()/100);
     
+    ofstream saida("saida.txt");
+    listaA.imprime(saida);
+    listaB.imprime(saida);
+    casas.imprime(saida);
+    saida.close();
+    int soma=0;
+    if (listaA.tam() >= i &&i !=0){
+        soma+= listaA.pegaNaLista(i);
+    }
+    if (listaB.tam() >= j && j!=0){
+        soma+= listaB.pegaNaLista(j);
+    }
+    if (casas.tam() >= k && k!=0){
+        soma+= casas.pegaNaLista(k);
+    }
+    ofstream result("result.txt");
+    result << soma ;
+    result.close();
     return 0;
 }
 

@@ -40,6 +40,13 @@ float Terreno::preco(){
     }
     return aux*1.1;
 }
+
+int Terreno::compara(Terreno* a){
+    if (this->area()==a->area()){
+        return this->getId() > a->getId();
+    }
+    return this->area() > a->area();
+}
 Terreno::~Terreno() {
     
 }

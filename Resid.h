@@ -15,13 +15,14 @@
 #define RESID_H
 
 class Resid : public Imovel {
-    int nQuartos,nVagas;
-public:
-    Resid(string tipo ,int identificador,string dono,int nQuartos,int nVagas);
-    Resid(const Resid& orig);
-    virtual ~Resid();
-    Resid();
-private:
+    protected:
+        int nQuartos,nVagas;
+    public:
+        Resid(string tipo ,int identificador,string dono,int nQuartos,int nVagas);
+        Resid(const Resid& orig);
+        virtual ~Resid();
+        Resid();
+    private:
 
 };
 

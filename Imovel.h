@@ -30,6 +30,7 @@ public:
     void imprime();
     int getId();
     virtual float preco();
+    int compara(Imovel *a);
     virtual ~Imovel();
     int comp(int i);
 private:

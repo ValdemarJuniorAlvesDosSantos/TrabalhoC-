@@ -39,6 +39,12 @@ int Imovel::getId(){
 int Imovel::comp(int i){
     return identificador-i;
 }
+int Imovel::compara(Imovel *a){
+    if (this->preco() == a->preco()){
+        return this->identificador < a->identificador;
+    }
+    return this->preco() < a->preco();;
+}
 Imovel::~Imovel() {
     
 }

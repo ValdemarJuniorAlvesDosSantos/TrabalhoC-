@@ -26,7 +26,8 @@ public:
     Casa();
     float preco();
     virtual ~Casa();
-private:
+    int compara(Casa *a);
+    
 
 };
 

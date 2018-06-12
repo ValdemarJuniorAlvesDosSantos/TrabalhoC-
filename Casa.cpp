@@ -37,3 +37,9 @@ float Casa::preco(){
 Casa::~Casa() {
 }
 
+int Casa:: compara(Casa *a){
+    if (this->nQuartos==a->nQuartos){
+        return this->getId() > a->getId();
+    }
+    return this->nQuartos > a->nQuartos;
+}

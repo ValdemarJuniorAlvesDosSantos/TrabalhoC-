@@ -26,6 +26,7 @@ public:
     Terreno();
     virtual float area();
     float preco();
+    int compara(Terreno* a);
     virtual ~Terreno();
 private:
 
