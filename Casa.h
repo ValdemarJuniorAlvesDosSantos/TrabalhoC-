@@ -1,35 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Casa.h
- * Author: 2015100354
- *
- * Created on 5 de Junho de 2018, 12:09
- */
+//Classe Casa
 #include "Resid.h"
 #ifndef CASA_H
 #define CASA_H
 
 class Casa:public Resid {
+  //atributos
+  int nPavi; // numero de pavimentos
+  float areaPavi; // area por pavimentos
+  float precoMetro;
+  float areaLivre;
+  float precoLivre;
 public:
-    int nPavi;
-    float areaPavi;
-    float precoMetro;
-    float areaLivre;
-    float precoLivre;
+    //construtor de casa
     Casa(string tipo ,int identificador,string dono,int nQuartos,int nVagas,int nPavi,float areaPavi,float precoMetro,float areaLivre,float precoLivre);
+    //construtor por copia
     Casa(const Casa& orig);
-    Casa();
+    //função de preço
     float preco();
-    virtual ~Casa();
+  
+    //função que compara duas casas
     int compara(Casa *a);
-    
+    //função que retorna a area construida da casa
+    float getArea(){ return areaPavi*nPavi;}
+
 
 };
 
 #endif /* CASA_H */
-

@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Imovel.h
- * Author: vj-estudos
- *
- * Created on 1 de Junho de 2018, 11:54
- */
+//Classe Imovel
 #include <iostream>
 #include <string>
 using namespace std;
@@ -23,19 +12,19 @@ class Imovel {
     string dono;
 
 public:
+    //construtor
     Imovel(string tipo ,int identificador,string dono);
+    //construtor por copia
     Imovel(const Imovel& orig);
-    Imovel();
-    
-    void imprime();
+    //função que pega o Id
     int getId();
-    virtual float preco();
+    //função virtual que calcula o preco(deve ser sobreescrita)
+    virtual float preco()=0;
+    //função que compara dois Imoveis
     int compara(Imovel *a);
-    virtual ~Imovel();
-    int comp(int i);
-private:
+
+
 
 };
 
 #endif /* IMOVEL_H */
-

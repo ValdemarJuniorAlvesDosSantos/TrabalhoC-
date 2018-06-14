@@ -1,15 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Trapez.h
- * Author: vj-estudos
- *
- * Created on 3 de Junho de 2018, 12:29
- */
+//Classe trapez
 #include "Terreno.h"
 #ifndef TRAPEZ_H
 #define TRAPEZ_H
@@ -17,14 +6,15 @@
 class Trapez : public Terreno{
     float base1,base2,altura;
 public:
+    //contrutor da classe
     Trapez(string tipo ,int identificador,string dono,string solo,float precoMetro,float base1,float base2,float altura);
+    //construtor por copia
     Trapez(const Trapez& orig);
-    Trapez();
+    //função que retorna a area
     float area();
-    virtual ~Trapez();
+    
 private:
 
 };
 
 #endif /* TRAPEZ_H */
-

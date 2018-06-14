@@ -1,35 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Terreno.cpp
- * Author: vj-estudos
- * 
- * Created on 1 de Junho de 2018, 12:35
- */
 
 #include "Terreno.h"
-Terreno::Terreno():Imovel(){
-}
+//construtor da classe
 Terreno::Terreno(string tipo ,int identificador,string dono,string solo,float precoMetro):
-    Imovel(tipo,identificador,dono)
-{
-    this->solo=solo;
-    this->precoMetro=precoMetro;
+    Imovel(tipo,identificador,dono){
+      this->solo=solo;
+      this->precoMetro=precoMetro;
 }
-
-Terreno::Terreno(const Terreno& orig):
-    Imovel(orig)
-{
+//construtor por copia
+Terreno::Terreno(const Terreno& orig):Imovel(orig){
     this->solo=orig.solo;
     this->precoMetro=orig.precoMetro;
 }
-float Terreno::area(){
-    return 0;
-}
+//função que calcula o preco de um terreno
 float Terreno::preco(){
     float aux=this->area()*precoMetro;
     if (this->solo=="A"){
@@ -40,14 +22,10 @@ float Terreno::preco(){
     }
     return aux*1.1;
 }
-
+//função que compara dois terrenos
 int Terreno::compara(Terreno* a){
     if (this->area()==a->area()){
         return this->getId() > a->getId();
     }
     return this->area() > a->area();
 }
-Terreno::~Terreno() {
-    
-}
-
