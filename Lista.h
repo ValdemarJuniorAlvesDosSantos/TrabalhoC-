@@ -8,6 +8,7 @@ using namespace std;
 template <class T>
 class Lista {
     //classe auxiliar no
+  protected:
     class No {
       public:
           No* prox;
@@ -18,8 +19,7 @@ class Lista {
 No* prim;
 
 public:
-//destrutor
-~Lista(){}
+
 //construtor
 Lista() { prim = NULL; }
 //função de insersao
